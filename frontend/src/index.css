@@ -1,0 +1,43 @@
+      /* * {
+  outline: 1px solid red;
+}   
+     */
+   
+ body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* .heading-color{
+  color: #122141;
+}
+.para-color{
+  color: #364052;
+} */
+ .hide-scrollbar::-webkit-scrollbar {
+    display: none; 
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  
+}
+
+
+.scrollbar-hide {
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@import "tailwindcss";
