@@ -25,9 +25,10 @@ const Home = () => {
         />
       </Helmet>
       <div className="">
+        <Alphabetical/>
         <RandomLogos />
         <DownloadedLogos />
-        <Alphabetical />
+        
       </div>
     </>
   );

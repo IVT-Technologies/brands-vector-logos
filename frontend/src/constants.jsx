@@ -1,4 +1,7 @@
 
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
+export const BRAND_NAME = "Brands Vector Logos";
 export const BASE_URL = "http://localhost:5000/alphabet";
 export const ABOUT_TITLE = "About Brands Vector Logos";
 
@@ -86,6 +89,21 @@ export const navMobile = [
     link: "/terms-and-conditions",
     type: "route",
   },
+];
+
+
+export const FOOTER_LINKS = [
+  { label: "About", path: "/about" },
+  { label: "Contact", path: "/contact" },
+  { label: "Privacy Policy", path: "/privacy-policy" },
+  { label: "Terms of Service", path: "/terms-and-conditions" },
+];
+
+export const SOCIAL_LINKS = [
+  { icon: FaFacebookF, url: "#" },
+  { icon: FaTwitter, url: "#" },
+  { icon: FaInstagram, url: "#" },
+  { icon: FaLinkedinIn, url: "#" },
 ];
 
 

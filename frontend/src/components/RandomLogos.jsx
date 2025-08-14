@@ -23,7 +23,7 @@ const RandomLogos = () => {
   }, []);
 
   return (
-    <div className="px-3 md:px-8 lg:px-20 py-12 bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen pt-[calc(3.5rem+1rem)]">
+    <div className="px-3 md:px-8 lg:px-20 py-12 bg-[#f8fbff] min-h-screen pt-[calc(3.5rem+1rem)]">
       <div className="mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-indigo-900 mb-8">
           Random Logos
