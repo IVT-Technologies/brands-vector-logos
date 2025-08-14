@@ -8,8 +8,9 @@ const DownloadedLogos = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const handleClick = (logo) => {
-    navigate(`/product/${logo._id}`);
+   const handleClick = (logo) => {
+    const slug = logo.name.replace(/\s+/g, "-").toLowerCase();
+    navigate(`/product/${slug}/${logo._id}`);
   };
 
   useEffect(() => {

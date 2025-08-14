@@ -1,5 +1,25 @@
+import { Helmet } from "react-helmet-async";
+import { BASE_URL } from "../constants";
+
 export default function ContactPage() {
   return (
+     <>
+      <Helmet>
+        <title>Contact Us | Brands Vector Logos</title>
+        <meta
+          name="description"
+          content="Get in touch with Brands Vector Logos for inquiries, feedback, or support. We are here to assist you with your logo needs."
+        />
+        <link rel="canonical" href={`${BASE_URL}/contact`} />
+        <meta
+          property="og:title"
+          content="Contact Brands Vector Logos"
+        />
+        <meta
+          property="og:description"
+          content="Have questions or feedback? Contact Brands Vector Logos and our team will be happy to help."
+        />
+      </Helmet>
     <section className="relative bg-gradient-to-b from-indigo-50 to-white py-16">
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Heading */}
@@ -75,5 +95,6 @@ export default function ContactPage() {
         </p>
       </div>
     </section>
+    </>
   );
 }

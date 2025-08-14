@@ -8,10 +8,29 @@ import {
   CTA_TITLE,
   CTA_DESC,
   CTA_BTN,
+  BASE_URL,
 } from "../constants";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
+     <>
+      <Helmet>
+        <title>About Us | Brands Vector Logos</title>
+        <meta
+          name="description"
+          content="Learn more about Brands Vector Logos, your go-to source for high-quality, free SVG brand logos for designers and creative projects."
+        />
+        <link rel="canonical" href={`${BASE_URL}/about`} />
+        <meta
+          property="og:title"
+          content="About Brands Vector Logos"
+        />
+        <meta
+          property="og:description"
+          content="Discover the story behind Brands Vector Logos and our mission to provide free, high-quality SVG brand logos for everyone."
+        />
+      </Helmet>
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 px-6 py-12 mt-10 md:mt-16 text-gray-800">
       
       {/* Hero Section */}
@@ -63,6 +82,7 @@ const About = () => {
         </Link>
       </section>
     </div>
+    </>
   );
 };
 
