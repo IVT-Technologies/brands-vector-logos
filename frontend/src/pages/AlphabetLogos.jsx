@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import { fetchLogos } from "../apis/Alphabetical_Api";
 import axios from "axios";
-import CustomButton from "./CustomeButton";
+import CustomButton from "../components/CustomeButton";
 import { IoMdArrowBack } from "react-icons/io";
 
 const AlphabetLogos = () => {

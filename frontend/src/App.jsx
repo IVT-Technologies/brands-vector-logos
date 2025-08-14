@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ScrollToTop from './utils/ScrollToTop'
 import Home from './pages/Home'
 import Layout from './layout/Layout'
-import AlphabetLogos from './components/AlphabetLogos'
+import AlphabetLogos from './pages/AlphabetLogos'
 import ProductDetail from './pages/ProductDetail';
 import About from './pages/About'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
