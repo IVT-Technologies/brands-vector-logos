@@ -15,10 +15,9 @@ const Navbar = () => {
   const drawerRef = useRef(null);
   const menuButtonRef = useRef(null);
 
-  // Close drawer when clicking outside
+  
   useClickOutside(drawerRef, closeDrawer, isDrawerOpen, [menuButtonRef]);
 
-  
   if (typeof document !== "undefined") {
     document.body.style.overflow = isDrawerOpen ? "hidden" : "unset";
   }
@@ -58,19 +57,22 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`fixed top-0 w-full z-50 transition-colors duration-300 bg-blue-600 ${
-          isScrolled ? "bg-blue-200 shadow-md" : "border-blue-600"
+        className={`fixed top-0 w-full z-50 transition-colors duration-300  ${
+          isScrolled ? "bg-[#D3F3FF] shadow-md" : "bg-transparent"
         }`}
       >
         <div className="mx-auto px-4 md:px-8 lg:px-20 pt-1">
           <div
             className={`flex justify-between items-center h-16 border-b ${
-              isScrolled ? "border-none" : "border-blue-700"
+              isScrolled ? "border-none" : "border-[#dde8eb]"
             }`}
           >
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-gray-200">
+              <span
+                className={`text-xl font-bold text-gray-200"
+               ${isScrolled ? "text-[#142352]" : "text-[#142352]"}`}
+              >
                 <Link to="/">Brands Vector Logos</Link>
               </span>
             </div>
@@ -80,10 +82,16 @@ const Navbar = () => {
               <button
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                className="text-gray-200 hover:text-blue-600 focus:outline-none transition-colors duration-200 p-2"
+                className={` hover:text-blue-600 focus:outline-none transition-colors duration-200 p-2"
+
                 aria-label="Toggle menu"
+                 ${isScrolled ? "text-[#142352]" : "text-[#142352]"}`}
               >
-                {isMenuOpen ? <FaTimes className="h-6 w-6" /> : <FaBars className="h-6 w-6" />}
+                {isMenuOpen ? (
+                  <FaTimes className="h-6 w-6" />
+                ) : (
+                  <FaBars className="h-6 w-6" />
+                )}
               </button>
             </div>
 
@@ -93,7 +101,8 @@ const Navbar = () => {
                 <button
                   key={index}
                   onClick={() => handleNavClick(item)}
-                  className="text-gray-100 md:text-sm xl:text-lg hover:text-white hover:border-b hover:border-blue-600 transition-colors duration-200 font-medium bg-transparent border-none cursor-pointer"
+                  className={` md:text-sm xl:text-lg hover:text-[#8497cf] hover:cursor-pointer hover:border-b hover:border-blue-600 transition-colors duration-200 font-medium bg-transparent border-none cursor-pointer"
+                    ${isScrolled ? "text-[#142352]" : "text-[#142352]"}`}
                 >
                   {item.name}
                 </button>
@@ -129,7 +138,7 @@ const Navbar = () => {
               <button
                 key={index}
                 onClick={() => handleNavClick(item)}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium text-lg py-3 border-b border-gray-100 hover:border-blue-200"
+                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium text-sm py-3 border-b border-gray-100 hover:border-blue-200"
               >
                 {item.name}
               </button>
@@ -147,7 +156,9 @@ const Navbar = () => {
 
           {/* Drawer Footer */}
           <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200 bg-gray-50">
-            <div className="text-center text-sm text-gray-500">VectorLogo © 2024</div>
+            <div className="text-center text-sm text-gray-500">
+              VectorLogo © 2024
+            </div>
           </div>
         </div>
       )}
