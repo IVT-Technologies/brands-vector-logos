@@ -5,7 +5,7 @@ import { BRAND_NAME, FOOTER_LINKS, SOCIAL_LINKS } from "../constants";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-10 mt-12">
+    <footer className="bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-10 ">
       <div className="mx-auto px-4 md:px-8 lg:px-20">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-6 mb-6">
