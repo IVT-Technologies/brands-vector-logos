@@ -118,7 +118,7 @@ const Alphabetical = () => {
   return (
     <div id="alphabetical-section" className="px-4 md:px-8 lg:px-20 py-10 relative">
       <div className="flex justify-center items-center mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#122141]">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-indigo-900">
           Alphabetical Logos
         </h1>
       </div>
