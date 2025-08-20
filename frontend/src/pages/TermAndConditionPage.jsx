@@ -24,7 +24,7 @@ export default function TermsAndConditions() {
       </CustomButton>
       </div>
       
-      <h1 className="text-4xl font-bold mb-8 text-indigo-600">
+      <h1 className="text-3xl md:text-4xl font-bold mb-8 text-indigo-600">
         Terms and Conditions
       </h1>
 

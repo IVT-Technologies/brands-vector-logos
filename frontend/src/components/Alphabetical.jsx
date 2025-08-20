@@ -76,7 +76,7 @@ const Alphabetical = () => {
     
     isScrollingRef.current = true;
     const container = scrollContainer.current;
-    const itemWidth = 200 + 24; // Fixed item width + margin
+    const itemWidth = 200 + 24; 
     const currentScroll = container.scrollLeft;
     const maxScroll = container.scrollWidth - container.clientWidth;
     
@@ -131,7 +131,7 @@ const Alphabetical = () => {
           {canScrollLeft && (
             <button
               onClick={() => scroll('left')}
-              className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg z-10 hover:bg-gray-100 transition-all duration-200 opacity-90 hover:opacity-100"
+              className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg z-10 hover:cursor-pointer hover:bg-gray-100 transition-all duration-200 opacity-90 hover:opacity-100"
               aria-label="Scroll left"
             >
               <AiOutlineLeft size={24} />
@@ -181,7 +181,7 @@ const Alphabetical = () => {
           {canScrollRight && (
             <button
               onClick={() => scroll('right')}
-              className="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg z-10 hover:bg-gray-100 transition-all duration-200 opacity-90 hover:opacity-100"
+              className="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 p-2 hover:cursor-pointer bg-white rounded-full shadow-lg z-10 hover:bg-gray-100 transition-all duration-200 opacity-90 hover:opacity-100"
               aria-label="Scroll right"
             >
               <AiOutlineRight size={24} />

@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
         Back
       </CustomButton>
       </div>
-      <h1 className="text-4xl font-bold mb-8 text-indigo-600">Privacy Policy</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-8 text-indigo-600">Privacy Policy</h1>
 
       <p className="text-lg text-gray-600 mb-6">
         We are committed to protecting your privacy. This policy outlines how

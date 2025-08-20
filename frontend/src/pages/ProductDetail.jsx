@@ -149,7 +149,7 @@ function ProductDetail() {
       </Helmet>
 
       <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
-        <div className="w-72 md:w-6xl pt-16 md:pt-20">
+        <div className="w-72 md:w-2xl lg:w-4xl xl:w-7xl pt-16 md:pt-20">
           <CustomButton
             onClick={handleBack}
             className=" bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 mb-4 hover:to-indigo-800 text-white font-semibold text-sm md:text-xl py-2 md:py-3 px-2.5 md:px-6 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2"

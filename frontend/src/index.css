@@ -1,6 +1,6 @@
-       /* * {
+        /* * {
   outline: 1px solid red;
-}    */
+}     */
      
    
  body {
@@ -15,6 +15,7 @@
 .para-color{
   color: #364052;
 } */
+ 
  .hide-scrollbar::-webkit-scrollbar {
     display: none; 
 }
