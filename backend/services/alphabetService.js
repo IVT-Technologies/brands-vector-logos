@@ -12,7 +12,7 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
     const filteredLogos = await Alphabet.find({ alphabet: alphabet.toLowerCase() })
       .skip(skip)
       .limit(limit)
-      .select("-source_logo_url -brand_url"); // ❌ remove these fields
+      .select("-source_logo_url -brand_url");
 
     const totalCount = await Alphabet.countDocuments({ alphabet: alphabet.toLowerCase() });
 
@@ -24,6 +24,7 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
     };
   }
 
+  // 👇 yaha result array milega
   const alphabets = await Alphabet.aggregate([
     { $sort: { created_at: -1 } },
     {
@@ -47,19 +48,26 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
               download_count: "$$logo.download_count",
               created_at: "$$logo.created_at",
               alphabet: "$$logo.alphabet"
-              // ❌ no brand_url or source_logo_url
             },
           },
         },
       },
-    },
-    { $sort: { alphabet: 1 } },
+    }
   ]);
+
+  // ✅ Ab yaha alphabets array pe filter lagao
+  const letters = alphabets.filter(a => /^[a-zA-Z]$/.test(a.alphabet));
+  const numbers = alphabets.filter(a => /^[0-9]$/.test(a.alphabet));
+
+  letters.sort((a, b) => a.alphabet.localeCompare(b.alphabet));
+  numbers.sort((a, b) => a.alphabet.localeCompare(b.alphabet));
+
+  const sortedAlphabets = [...letters, ...numbers];
 
   return {
     type: "grouped",
-    count: alphabets.length,
-    data: alphabets,
+    count: sortedAlphabets.length,
+    data: sortedAlphabets,
   };
 };
 
