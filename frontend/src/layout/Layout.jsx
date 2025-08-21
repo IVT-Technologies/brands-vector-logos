@@ -9,7 +9,7 @@ const Layout = () => {
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
 
-  const hideHeroSectionOn = ['/product','/about','contact','/privacy-policy','/terms-and-conditions'];
+  const hideHeroSectionOn = ['/product','/about','/contact','/privacy-policy','/terms-and-conditions'];
 
   const shouldShowHero = !hideHeroSectionOn.some(path =>
     location.pathname.startsWith(path)

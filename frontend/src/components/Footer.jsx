@@ -10,17 +10,17 @@ const Footer = () => {
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-6 mb-6">
           {/* Brand */}
-          <div className="text-2xl font-bold tracking-wide text-[#AFBDE7]">
+          <div className="text-2xl md:text-xl lg:text-2xl font-bold tracking-wide text-[#AFBDE7]">
             {BRAND_NAME}
           </div>
 
           {/* Navigation Links */}
-          <ul className="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+          <ul className="flex flex-wrap justify-center gap-4 mt-4 md:mt-1">
             {FOOTER_LINKS.map((link) => (
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className="hover:text-[#AFBDE7] transition-colors duration-200"
+                  className="hover:text-[#AFBDE7] text-sm lg:text-lg transition-colors duration-200"
                 >
                   {link.label}
                 </Link>

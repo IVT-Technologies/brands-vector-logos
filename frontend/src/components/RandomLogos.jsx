@@ -48,7 +48,7 @@ const RandomLogos = () => {
                 
                 <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-3 flex items-center justify-center">
                   <img
-                    src={logo.pictures?.[0] || "/placeholder.png"}
+                    src={logo.logo_url || "/placeholder.png"}
                     alt={logo.name}
                     className="w-full h-full object-contain"
                     loading="lazy"

@@ -11,7 +11,8 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
 
     const filteredLogos = await Alphabet.find({ alphabet: alphabet.toLowerCase() })
       .skip(skip)
-      .limit(limit);
+      .limit(limit)
+      .select("-source_logo_url -brand_url"); // ❌ remove these fields
 
     const totalCount = await Alphabet.countDocuments({ alphabet: alphabet.toLowerCase() });
 
@@ -35,7 +36,21 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
       $project: {
         _id: 0,
         alphabet: "$_id",
-        logos: { $slice: ["$logos", 4] },
+        logos: {
+          $map: {
+            input: { $slice: ["$logos", 4] },
+            as: "logo",
+            in: {
+              _id: "$$logo._id",
+              name: "$$logo.name",
+              logo_url: "$$logo.logo_url",
+              download_count: "$$logo.download_count",
+              created_at: "$$logo.created_at",
+              alphabet: "$$logo.alphabet"
+              // ❌ no brand_url or source_logo_url
+            },
+          },
+        },
       },
     },
     { $sort: { alphabet: 1 } },
@@ -49,6 +64,7 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
 };
 
 
+
 // Fetch single logo
 
 const fetchSingleLogo = async (id) => {
@@ -58,7 +74,7 @@ const fetchSingleLogo = async (id) => {
     throw new Error("Invalid ID format");
   }
 
-  const logo = await Alphabet.findById(id);
+  const logo = await Alphabet.findById(id).select("-source_logo_url -brand_url");
   if (!logo) throw new Error("Product not found");
 
   return logo;
@@ -108,41 +124,38 @@ const getTopDownloadsService = async (limit = 12) => {
   return await Alphabet.find()
     .sort({ download_count: -1 })
     .limit(limit)
-    .select("name pictures download_count");
+    .select("name logo_url download_count");
 };
 
 //Random 12 Logos
- const getRandomLogosService= async()=>{
-  try{
-    const randomLogos = await Alphabet.aggregate([
-      {
-        $sample:{size:12}
+const getRandomLogosService = async () => {
+  return await Alphabet.aggregate([
+    { $sample: { size: 12 } },
+    {
+      $project: {
+        source_logo_url: 0,
+        brand_url: 0
       }
-    ]);
-    return randomLogos;
-  }
-  catch (error) {
-    console.error("Error in getRandomLogosService:", error);
-    throw error; // Pass error to controller
-  }
- }
+    }
+  ]);
+};
 
 
 // Search
-const searchAlphabets = async ({ name, pictures }) => {
+const searchAlphabets = async ({ name, logo_url }) => {
   let filter = {};
 
-  // If "name" is actually a URL, search in pictures instead
+  // If "name" is actually a URL, search in logo_url instead
   if (name) {
     if (/^https?:\/\//i.test(name)) {
-      filter.pictures = { $elemMatch: { $regex: name, $options: "i" } };
+      filter.logo_url = { $elemMatch: { $regex: name, $options: "i" } };
     } else {
       filter.name = { $regex: name, $options: "i" };
     }
   }
 
-  if (pictures) {
-    filter.pictures = { $elemMatch: { $regex: pictures, $options: "i" } };
+  if (logo_url) {
+    filter.logo_url = { $elemMatch: { $regex: logo_url, $options: "i" } };
   }
 
   console.log("Search filter:", filter);

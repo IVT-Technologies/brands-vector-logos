@@ -46,9 +46,9 @@ function ProductDetail() {
 
   // Load SVG when product is ready
   useEffect(() => {
-    if (product?.pictures?.[0] && svgContainerRef.current) {
+    if (product?.logo_url && svgContainerRef.current) {
       loadSVG({
-        svgUrl: product.pictures[0],
+        svgUrl: product.logo_url,
         svgContainerRef,
         svgJsDraw,
         setCurrentColor,
@@ -75,9 +75,9 @@ function ProductDetail() {
   };
 
   const handleReset = async () => {
-    if (!product?.pictures?.[0]) return;
+    if (!product?.logo_url) return;
     await loadSVG({
-      svgUrl: product.pictures[0],
+      svgUrl: product.logo_url,
       svgContainerRef,
       svgJsDraw,
       setCurrentColor,
@@ -144,7 +144,7 @@ function ProductDetail() {
           property="og:description"
           content={`Free ${product.name} SVG vector logo for your projects.`}
         />
-        <meta property="og:image" content={product.pictures?.[0] || ""} />
+        <meta property="og:image" content={product.logo_url || ""} />
         <meta property="og:url" content={canonicalUrl} />
       </Helmet>
 
@@ -231,7 +231,7 @@ function ProductDetail() {
                 </div>
               </div>
 
-              <motion.div
+              <div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full mt-4 flex flex-col gap-4"
@@ -251,7 +251,7 @@ function ProductDetail() {
                   <FiDownload className="text-xl" />
                   Download Customized Logo
                 </CustomButton>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
 

@@ -139,9 +139,9 @@ const AlphabetLogos = () => {
                   onClick={() => handleClick(logo)}
                   className="bg-white rounded-xl shadow-lg hover:shadow-2xl p-6 flex flex-col items-center transform hover:-translate-y-1 hover:scale-105 transition-transform duration-200"
                 >
-                  <div className="w-22 h-22 md:w-40 md:h-26 mb-4 flex items-center justify-center">
+                  <div className="w-22 h-22 md:w-34 md:h-26 mb-4 flex items-center justify-center">
                     <img
-                      src={logo.pictures[0]}
+                      src={logo.logo_url}
                       alt={logo.name}
                       className="max-w-full max-h-full object-contain"
                       loading="lazy"

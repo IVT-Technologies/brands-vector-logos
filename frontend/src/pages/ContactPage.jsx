@@ -20,7 +20,7 @@ export default function ContactPage() {
           content="Have questions or feedback? Contact Brands Vector Logos and our team will be happy to help."
         />
       </Helmet>
-    <section className="relative bg-gradient-to-b from-indigo-50 to-white py-16">
+    <section className="relative bg-gradient-to-b from-indigo-50 to-white pb-16 pt-24">
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Heading */}
         <h1 className="text-4xl font-bold text-indigo-600 mb-4">

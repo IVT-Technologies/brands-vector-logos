@@ -18,6 +18,7 @@ const Alphabetical = () => {
     const getLogos = async () => {
       try {
         const data = await fetchLogos();
+        console.log("data",data);
         setLogoGroups(data || []);
       } catch (error) {
         console.error("Error fetching logos:", error);
@@ -161,7 +162,7 @@ const Alphabetical = () => {
                       className="flex items-center max-h-23 justify-center p-2 border border-gray-100"
                     >
                       <img
-                        src={logo.pictures[0]}
+                        src={logo.logo_url}
                         alt={logo.name}
                         className="max-h-full max-w-full object-contain"
                         loading="lazy"

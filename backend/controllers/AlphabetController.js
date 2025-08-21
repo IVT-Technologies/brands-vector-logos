@@ -125,8 +125,8 @@ exports.getTopDownloads = async (req, res) => {
 exports.findSearchAlphabets = async (req, res) => {
   // console.log("✅ /alphabet/search hit with query:", req.query);
   try {
-    const { name, pictures } = req.query;
-    const result = await searchAlphabets({ name, pictures });
+    const { name, logo_url } = req.query;
+    const result = await searchAlphabets({ name, logo_url });
     res.status(STATUS.OK).json({
       status: "SUCCESS",
       data: result,
