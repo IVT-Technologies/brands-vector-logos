@@ -55,7 +55,6 @@ const fetchLogosByAlphabet = async (alphabet, page = 1, limit = 32) => {
     }
   ]);
 
-  // ✅ Ab yaha alphabets array pe filter lagao
   const letters = alphabets.filter(a => /^[a-zA-Z]$/.test(a.alphabet));
   const numbers = alphabets.filter(a => /^[0-9]$/.test(a.alphabet));
 
